@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "3f8780fb-0b9c-40d2-b9cd-9df887f36026",
+		"name": "Pokeapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get 20 Pokemons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/bulbasaur",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"bulbasaur"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
