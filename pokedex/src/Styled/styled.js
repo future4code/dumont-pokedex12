@@ -33,7 +33,7 @@ export const TitleContainer = styled.div`
   align-items: flex-end;
   grid-column: 2 / 3;
   margin: 0px;
-  //padding-right: 30px;
+  color: white;
 `;
 
 export const MenuContainer = styled.div`
@@ -50,6 +50,7 @@ export const BodyContainerList = styled.div`
   width: 100vw;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: center;
   grid-row: 2 / 3;
   margin: 0px;
   padding: 5px 10px;
@@ -59,12 +60,42 @@ export const BodyContainerList = styled.div`
 export const CardContainer = styled.div`
   display: grid;
   width: 18vw;
-  grid-row: 2 / 3;
+  //grid-row: 2 / 3;
   margin: 20px 10px;
   justify-items: center;
   background-color: #243E73;
   border-radius: 5%;
   padding: 10px;
+  box-sizing: border-box;
+`;
+
+export const ImagesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 17.5vw;
+  height: 75vh;
+  margin: 10px 10px;
+  justify-items: center;
+  background-color: #243E73;
+  border-radius: 5%;
+  padding: 0px;
+  box-sizing: border-box;
+`;
+
+export const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32vw;
+  height: 75vh;
+  margin: 10px 10px;
+  justify-items: center;
+  background-color: #243E73;
+  border-radius: 5%;
+  padding: 0px;
   box-sizing: border-box;
 `;
 
@@ -74,7 +105,10 @@ export const Logo = styled.img`
 export const ImgPokemon = styled.img`
   width: 200px;
   border-radius: 5%;
+  margin-bottom: 5px;
+  margin-top: 5px;
 `;
+
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -97,7 +131,7 @@ export const TextMenu = styled.p`
   font-size: 18px;
   padding: 0px;
   cursor: pointer;
-  margin: 10px 5px;
+  margin: 10px 15px;
   color: white;
     :hover {
     color: #F2B807;
@@ -119,4 +153,18 @@ background-color: #F2B807;
   background-color: #BF920A;
 };
 `
-
+export const BlueButton = styled.button`
+width: 7vw;
+height: 6vh;
+margin: 5px;
+font-size: 10px;
+font-weight: 800;
+border: none;
+cursor: pointer;
+border-radius: 8%;
+color: white;
+background-color: #243E73;
+:hover {
+  background-color: #307CBF;
+};
+`
