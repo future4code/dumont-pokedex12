@@ -103,6 +103,7 @@ export const TextMenu = styled.p`
     color: #F2B807;
   };
 `
+
 export const YellowButton = styled.button`
 width: 7vw;
 height: 6vh;
@@ -118,3 +119,4 @@ background-color: #F2B807;
   background-color: #BF920A;
 };
 `
+
