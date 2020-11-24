@@ -9,7 +9,10 @@ import {
    CardContainer,
    ImgPokemon,
    ButtonContainer,
-   TextMenu
+   TextMenu,
+   YellowButton,
+   TextTitle,
+   TitleContainer
   } from "../Styled/styled";
 import axios from "axios";
 import { goToDetails, goToPokedex } from "./router/Coordinator";
@@ -34,11 +37,61 @@ function HomePage() {
               <CardContainer>
                 <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
                 <div>
-                  <p>Bulbasur</p>
+                  <TextTitle>Bulbasur</TextTitle>
                 </div>
                 <ButtonContainer>
-                  <button onClick={() => goToPokedex(history)}>POKEDEX</button>
-                  <button onClick={() => goToDetails(history)}>DETALHES</button>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+                </ButtonContainer>
+              </CardContainer>
+              <CardContainer>
+                <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+                <div>
+                  <TextTitle>Bulbasur</TextTitle>
+                </div>
+                <ButtonContainer>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+                </ButtonContainer>
+              </CardContainer>
+              <CardContainer>
+                <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+                <div>
+                  <TextTitle>Bulbasur</TextTitle>
+                </div>
+                <ButtonContainer>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+                </ButtonContainer>
+              </CardContainer>
+              <CardContainer>
+                <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+                <div>
+                  <TextTitle>Bulbasur</TextTitle>
+                </div>
+                <ButtonContainer>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+                </ButtonContainer>
+              </CardContainer>
+              <CardContainer>
+                <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+                <div>
+                  <TextTitle>Bulbasur</TextTitle>
+                </div>
+                <ButtonContainer>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+                </ButtonContainer>
+              </CardContainer>
+              <CardContainer>
+                <ImgPokemon src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+                <div>
+                  <TextTitle>Bulbasur</TextTitle>
+                </div>
+                <ButtonContainer>
+                  <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
+                  <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
                 </ButtonContainer>
               </CardContainer>
             </BodyContainerList>
