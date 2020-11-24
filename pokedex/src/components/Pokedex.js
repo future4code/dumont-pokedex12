@@ -10,6 +10,8 @@ import {
   ImgPokemon,
   ButtonContainer,
   TextMenu,
+  YellowButton,
+  TextTitle,
 } from "../Styled/styled";
 import axios from "axios";
 import { goToDetails, goToHome, goBack } from "./router/Coordinator";
@@ -35,44 +37,100 @@ function Pokedex() {
         <CardContainer>
           <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
           <div>
-            <p>Bulbasur</p>
+            <TextTitle>Bulbasur</TextTitle>
           </div>
           <ButtonContainer>
-            <button>Remover Pokemon</button>
-            <button onClick={() => goToDetails(history)}>Detalhes</button>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
           </ButtonContainer>
         </CardContainer>
 
         <CardContainer>
           <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
           <div>
-            <p>Bulbasur</p>
+            <TextTitle>Bulbasur</TextTitle>
           </div>
           <ButtonContainer>
-            <button>Remover Pokemon</button>
-            <button onClick={() => goToDetails(history)}>Detalhes</button>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
           </ButtonContainer>
         </CardContainer>
 
         <CardContainer>
           <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
           <div>
-            <p>Bulbasur</p>
+            <TextTitle>Bulbasur</TextTitle>
           </div>
           <ButtonContainer>
-            <button>Remover Pokemon</button>
-            <button onClick={() => goToDetails(history)}>Detalhes</button>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
           </ButtonContainer>
         </CardContainer>
 
         <CardContainer>
           <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
           <div>
-            <p>Bulbasur</p>
+            <TextTitle>Bulbasur</TextTitle>
           </div>
           <ButtonContainer>
-            <button>Remover Pokemon</button>
-            <button onClick={() => goToDetails(history)}>Detalhes</button>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
+          </ButtonContainer>
+        </CardContainer>
+        <CardContainer>
+          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+          <div>
+            <TextTitle>Bulbasur</TextTitle>
+          </div>
+          <ButtonContainer>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
+          </ButtonContainer>
+        </CardContainer>
+        <CardContainer>
+          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+          <div>
+            <TextTitle>Bulbasur</TextTitle>
+          </div>
+          <ButtonContainer>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
+          </ButtonContainer>
+        </CardContainer>
+        <CardContainer>
+          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+          <div>
+            <TextTitle>Bulbasur</TextTitle>
+          </div>
+          <ButtonContainer>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
+          </ButtonContainer>
+        </CardContainer>
+        <CardContainer>
+          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
+          <div>
+            <TextTitle>Bulbasur</TextTitle>
+          </div>
+          <ButtonContainer>
+            <YellowButton>REMOVER POKEMON</YellowButton>
+            <YellowButton onClick={() => goToDetails(history)}>
+              DETALHES
+            </YellowButton>
           </ButtonContainer>
         </CardContainer>
       </BodyContainerList>
