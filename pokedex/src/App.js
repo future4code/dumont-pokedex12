@@ -3,11 +3,13 @@ import HomePage from "./components/HomePage";
 import DetailsPokemon from "./components/DetailsPokemon";
 import Pokedex from "./components/Pokedex";
 import Router from "../src/components/router/Router";
+import GlobalStyled from './components/globalStyled'
 
 function App() {
   return (
     <div>
-      <Router />
+      <GlobalStyled/>
+      <HomePage/>
     </div>
   );
 }
