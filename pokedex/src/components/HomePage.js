@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled from 'styled-components';
+import { ItemContainer, ItemImage, TextContainer, NameText } from "../Styled/styled";
 import axios from "axios";
+import { goToDetails, goToPokedex } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
 
 
@@ -8,18 +9,10 @@ import { useHistory } from "react-router-dom";
 function HomePage() {
   const history = useHistory();
 
-  const goToPokedexPage = (id) => {
-    history.push("/pokedex");
-  };
-
-  const goToDetailsPage = (id) => {
-    history.push("/detalhes");
-  };
-
-  return <div>
-  <button onClick={goToPokedexPage}>POKEDEX</button>
-  <button onClick={goToDetailsPage}>DETALHES</button>
-  </div>;
+  return <ItemContainer>
+  <button onClick={() => goToPokedex(history)}>POKEDEX</button>
+  <button onClick={() => goToDetails(history)}>DETALHES</button>
+  </ItemContainer>;
   
 }
 
