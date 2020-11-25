@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 
 export const usePokemon = (initialState, url) => {
   const [details, setDetails] = useState(initialState);
+  
   useEffect(() => {
     axios
       .get(url)
-      .then((response) => setDetails(response.data.sprites.front_default))
+      .then((res) => setDetails(res.data.sprites.front_default))
       .catch((error) => console.log(error));
   }, [url]);
 
