@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
    MainContainer,
    HeaderContainer,
@@ -17,35 +17,19 @@ import axios from "axios";
 import { goToDetails, goToPokedex } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
+import GlobalStateContext from "../global/GlobalStateContext";
 
 
 
 function HomePage() {
   const history = useHistory();
-  const [pokemons, setPokemons] = useState([]);
-  
+  const { pokeImage, setPokeImage, getPokeImage, pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+    
   
   useEffect(() => {
     getPokemons();
+    getPokeImage();
   }, []);
-
-  const getPokemons = () => {
-    axios
-      .get(
-        "https://pokeapi.co/api/v2/pokemon/",
-      )
-      .then((res) => {
-        setPokemons(res.data.results);
-        console.log(pokemons)
-        console.log(res.data.results)
-  
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-
 
   return <MainContainer>
             <HeaderContainer>
@@ -59,7 +43,7 @@ function HomePage() {
             <BodyContainerList>
             {pokemons.map((poke) => {
               return <CardContainer>
-                      <ImgPokemon src= "https://pokeapi.co/api/v2/pokemon/5/"></ImgPokemon>
+                      <ImgPokemon src= {pokeImage}></ImgPokemon>
                       <div>
                         <TextTitle>{poke.name}</TextTitle>
                       </div>
