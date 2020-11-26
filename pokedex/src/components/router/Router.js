@@ -12,7 +12,7 @@ function Router() {
           <HomePage />
         </Route>
 
-        <Route exact path="/detalhes">
+        <Route exact path="/detalhes/:name">
           <DetailsPokemon />
         </Route>
 
