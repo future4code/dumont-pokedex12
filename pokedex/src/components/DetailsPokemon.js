@@ -15,7 +15,10 @@ import {
    TitleContainer,
    ImagesContainer,
    DetailsContainer,
-   BlueButton
+   BlueButton,
+   TextDetails,
+   StatsContainer,
+   TypeContainer
   } from "../Styled/styled";
 import axios from "axios";
 import { goToDetails, goToPokedex, goToHome } from "./router/Coordinator";
@@ -31,6 +34,7 @@ function DetailsPokemon() {
   const [pokeImageFront, setPokeImageFront] = useState([])
   const [pokeImageBack, setPokeImageBack] = useState([])
   const [pokeStats, setPokeStats] = useState([])
+  const [pokeTypes, setPokeTypes] = useState([])
   const [pokeMoves, setPokeMoves] = useState([])
 
   let hp = {}
@@ -53,6 +57,7 @@ function DetailsPokemon() {
     setPokeImageFront(res.data.sprites.front_default);
     setPokeImageBack(res.data.sprites.back_default);
     setPokeStats(res.data.stats);
+    setPokeTypes(res.data.types);
     setPokeMoves(res.data.moves);
     console.log(res.data.moves)
 
@@ -81,7 +86,6 @@ const moveList = pokeMoves.filter((move, index) => {
 
 
 
-
   return <MainContainer>
             <HeaderContainer>
               <LogoContainer>
@@ -99,20 +103,26 @@ const moveList = pokeMoves.filter((move, index) => {
                 <ImgPokemon src= {pokeImageBack}></ImgPokemon>
               </ImagesContainer>
               <DetailsContainer>
-                <h2>PODERES</h2>
-                <p>HP: {hp.base_stat} </p>
-                <p>Ataque: {attack.base_stat} </p>
-                <p>Defesa: {defense.base_stat} </p>
-                <p>Ataque Especial: {specialAttack.base_stat} </p>
-                <p>Defesa Especial: {specialDefense.base_stat} </p>
-                <p>Velocidade: {speed.base_stat} </p>
+                <TitleContainer>
+                  <TextTitle>PODERES</TextTitle>
+                </TitleContainer>
+                <StatsContainer>
+                  <TextDetails>HP: {hp.base_stat} </TextDetails>
+                  <TextDetails>Ataque: {attack.base_stat} </TextDetails>
+                  <TextDetails>Defesa: {defense.base_stat} </TextDetails>
+                  <TextDetails>Ataque Especial: {specialAttack.base_stat} </TextDetails>
+                  <TextDetails>Defesa Especial: {specialDefense.base_stat} </TextDetails>
+                  <TextDetails>Velocidade: {speed.base_stat} </TextDetails>
+                </StatsContainer>
               </DetailsContainer>
               <DetailsContainer>
-                <h2>TIPO</h2>
-                <p>Grama</p>
-                <h2>Principais Ataques</h2>
+                <TextTitle>TIPO</TextTitle>
+                {pokeTypes.map((type) => {
+                  return <TypeContainer>{type.type.name}</TypeContainer>
+                })}
+                <TextTitle>PRINCIPAIS ATAQUES</TextTitle>
                 {moveList.map((move) => {
-                  return <p>{move.move.name}</p>
+                  return <TextDetails>{move.move.name}</TextDetails>
                 })}
               </DetailsContainer>
               <BlueButton>ADICIONAR À POKEDEX</BlueButton>
