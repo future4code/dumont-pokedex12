@@ -24,13 +24,8 @@ import CardPokemon from "./CardPokemon";
 
 function HomePage() {
   const history = useHistory();
-  const { urlImage, setUrlImage, pokeImage, setPokeImage, getPokeImage, pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
     
-  
-  useEffect(() => {
-    getPokemons();
-  }, []);
-
   return <MainContainer>
             <HeaderContainer>
               <LogoContainer>

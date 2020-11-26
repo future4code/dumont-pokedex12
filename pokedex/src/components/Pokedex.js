@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   MainContainer,
   HeaderContainer,
@@ -12,14 +12,18 @@ import {
   TextMenu,
   YellowButton,
   TextTitle,
+  TitleContainer,
 } from "../Styled/styled";
 import axios from "axios";
 import { goToDetails, goToHome, goBack } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
-import Logomarca from "../img/pokemon-logo.png";
+import Logomarca from "../img/pokemon-logo.png"
+import GlobalStateContext from "../global/GlobalStateContext";
+import CardPokemon from "./CardPokemon";
 
 function Pokedex() {
   const history = useHistory();
+  const { pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
 
   return (
     <MainContainer>
@@ -27,112 +31,18 @@ function Pokedex() {
         <LogoContainer>
           <Logo src={Logomarca}></Logo>
         </LogoContainer>
+        <TitleContainer>
+            <h1>SUA POKEDEX </h1>
+        </TitleContainer>
         <MenuContainer>
-          {/* <h1>SUA POKEDEX </h1> */}
           <TextMenu onClick={() => goToHome(history)}>POKEHOME</TextMenu>
           <TextMenu onClick={() => goBack(history)}>VOLTAR</TextMenu>
         </MenuContainer>
       </HeaderContainer>
       <BodyContainerList>
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
-        <CardContainer>
-          <ImgPokemon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKDs6Vi0XC-iqim86COwaCdEM0Bu-SNdqDLQ&usqp=CAU"></ImgPokemon>
-          <div>
-            <TextTitle>Bulbasur</TextTitle>
-          </div>
-          <ButtonContainer>
-            <YellowButton>REMOVER POKEMON</YellowButton>
-            <YellowButton onClick={() => goToDetails(history)}>
-              DETALHES
-            </YellowButton>
-          </ButtonContainer>
-        </CardContainer>
+      {pokedex.map((poke) => {
+              return <CardPokemon name={poke.name} url={poke.url} />
+            })}
       </BodyContainerList>
     </MainContainer>
   );

@@ -1,13 +1,20 @@
-import React, { useState, } from "react";
+import React, { useState, useEffect } from "react";
 import GlobalStateContext from "./global/GlobalStateContext";
 import axios from "axios";
 import Router from "../src/components/router/Router";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
-  const [pokedex, setPodedex] = useState([]);
+  const [pokedex, setPokedex] = useState([]);
   const [pokeDetails, setPokeDetails] = useState([]);
+  const [buttonPokedex, setButtonPokedex] = useState("ADICIONAR À POKEDEX")
   //const [pokeImage, setPokeImage] = useState([])
+
+  useEffect(() => {
+    getPokemons();
+  }, []);
+
+  
 
   const getPokemons = () => {
     axios
@@ -35,8 +42,7 @@ const App = () => {
       });
   }; */
 
-
-  const data = { pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails };
+  const data = { buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails };
 
   return (
     <GlobalStateContext.Provider value={data}>

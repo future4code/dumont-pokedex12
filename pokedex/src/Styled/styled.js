@@ -104,14 +104,6 @@ export const StatsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-/*   width: 32vw;
-  height: 75vh;
-  margin: 10px 10px;
-  justify-items: center;
-  background-color: #243E73;
-  border-radius: 5%;
-  padding: 0px;
-  box-sizing: border-box; */
 `;
 
 export const TypeContainer = styled.div`
