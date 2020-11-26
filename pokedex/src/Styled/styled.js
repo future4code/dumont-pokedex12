@@ -99,14 +99,41 @@ export const DetailsContainer = styled.div`
   box-sizing: border-box;
 `;
 
+export const StatsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+/*   width: 32vw;
+  height: 75vh;
+  margin: 10px 10px;
+  justify-items: center;
+  background-color: #243E73;
+  border-radius: 5%;
+  padding: 0px;
+  box-sizing: border-box; */
+`;
+
+export const TypeContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0px;
+  margin: 10px 15px;
+  color: #F2B807;
+`;
+
 export const Logo = styled.img`
   width: 250px;
 `;
 export const ImgPokemon = styled.img`
   width: 200px;
   border-radius: 5%;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: white;
 `;
 
 
@@ -136,6 +163,13 @@ export const TextMenu = styled.p`
     :hover {
     color: #F2B807;
   };
+`
+export const TextDetails = styled.p`
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0px;
+  margin: 10px 15px;
+  color: #F2B807;
 `
 
 export const YellowButton = styled.button`
