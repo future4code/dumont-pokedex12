@@ -23,7 +23,7 @@ const App = () => {
       });
   };
 
-/*   const getPokeImage = (url) => {
+/*   const getPokeDetails = (url) => {
         axios
       .get(url)
 

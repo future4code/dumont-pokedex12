@@ -33,6 +33,9 @@ function CardPokemon(props) {
   });
 };
 
+const goToDetails = (name) => {
+  history.push(`/detalhes/${name}`);
+};
 
   return (
         <CardContainer>
@@ -42,7 +45,7 @@ function CardPokemon(props) {
             </div>
             <ButtonContainer>
              <YellowButton onClick={() => goToPokedex(history)}>ADICIONAR À POKEDEX</YellowButton>
-             <YellowButton onClick={() => goToDetails(history)}>VER DETALHES</YellowButton>
+             <YellowButton onClick={() => goToDetails(props.name)}>VER DETALHES</YellowButton>
             </ButtonContainer>
         </CardContainer> 
   );
