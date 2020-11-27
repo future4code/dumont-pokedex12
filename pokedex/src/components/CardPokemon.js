@@ -14,7 +14,7 @@ import {
 
 function CardPokemon(props) {
   const history = useHistory();
-  const { buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { functionName, setFunctionName, detailsButton, setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
   const [pokeImage, setPokeImage] = useState([])
 
   useEffect(() => {
@@ -33,26 +33,12 @@ function CardPokemon(props) {
   });
 };
 
-const goToDetails = (name) => {
+const goToDetails = (name, url, pokedex) => {
+  pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   history.push(`/detalhes/${name}`);
 };
 
 
-const addPokedex = (name, url) => {
-  const newPokemon = {name, url}
-  const newPokedex = [...pokedex, newPokemon]
-  setPokedex(newPokedex)
-  alert("Pokemon adicionado com sucesso!")
-  const ListPokemon = pokemons.filter((pokemon) => {
-    if (pokemon.name !== name) {
-      return true
-    }
-      return false
-    })
-  setPokemons(ListPokemon)
-}
-
-  
   return (
         <CardContainer>
             <ImgPokemon src= {pokeImage}></ImgPokemon>
@@ -60,8 +46,8 @@ const addPokedex = (name, url) => {
              <TextTitle>{props.name}</TextTitle>
             </div>
             <ButtonContainer>
-             <YellowButton onClick={() => addPokedex(props.name, props.url)}>{buttonPokedex}`</YellowButton>
-             <YellowButton onClick={() => goToDetails(props.name)}>VER DETALHES</YellowButton>
+             <YellowButton onClick={() => props.function(props.name, props.url)}>{textButton}</YellowButton>
+             <YellowButton onClick={() => goToDetails(props.name, props.url, props.pokedex)}>VER DETALHES</YellowButton>
             </ButtonContainer>
         </CardContainer> 
   );

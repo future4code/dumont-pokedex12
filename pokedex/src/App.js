@@ -7,8 +7,12 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [pokeDetails, setPokeDetails] = useState([]);
-  const [buttonPokedex, setButtonPokedex] = useState("ADICIONAR À POKEDEX")
-  //const [pokeImage, setPokeImage] = useState([])
+  //const [buttonPokedex, setButtonPokedex] = useState(true)
+  const [textButton, setTextButton] = useState("ADICIONAR À POKEDEX")
+  //const [functionName, setFunctionName] = useState("addPokedex")
+  const [detailsButton, setDetailsButton] = useState("")
+  const [detailsFunction, setDetailsFunction] = useState("")
+
 
   useEffect(() => {
     getPokemons();
@@ -30,19 +34,7 @@ const App = () => {
       });
   };
 
-/*   const getPokeDetails = (url) => {
-        axios
-      .get(url)
-
-      .then((res) => {
-        setPokeImage(res.data.sprites.front_default);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }; */
-
-  const data = { buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails };
+  const data = { detailsFunction, setDetailsFunction, detailsButton, setDetailsButton, textButton, setTextButton, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails };
 
   return (
     <GlobalStateContext.Provider value={data}>

@@ -23,7 +23,37 @@ import CardPokemon from "./CardPokemon";
 
 function Pokedex() {
   const history = useHistory();
-  const { pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+
+/*   useEffect(() => {
+    buttonPokedex ? setTextButton("ADICIONAR DA POKEDEX") : setTextButton("REMOVER DA POKEDEX")
+  }, []); */
+
+  const goToHome = () => {
+    setTextButton("ADICIONAR À POKEDEX")
+    history.push("/");
+  };
+
+  const goBack = () => {
+    setTextButton("ADICIONAR À POKEDEX")
+    history.goBack();
+  };
+
+  const removePokedex = (name, url) => {
+    /*   const newPokemon = {name, url}
+      //const newPokedex = [...pokedex, newPokemon]
+      setPokedex(pokedex.splice(newPokemon))
+      alert("Pokemon adicionado com sucesso!")
+      const ListPokemon = pokemons.filter((pokemon) => {
+        if (pokemon.name !== name) {
+          return true
+        }
+          return false
+        })
+      setPokemons(ListPokemon) */
+      alert("Removido!")
+    }
+
 
   return (
     <MainContainer>
@@ -41,7 +71,7 @@ function Pokedex() {
       </HeaderContainer>
       <BodyContainerList>
       {pokedex.map((poke) => {
-              return <CardPokemon name={poke.name} url={poke.url} />
+              return <CardPokemon function={removePokedex} pokedex={true} name={poke.name} url={poke.url} />
             })}
       </BodyContainerList>
     </MainContainer>

@@ -14,7 +14,7 @@ import {
    TextTitle,
   } from "../Styled/styled";
 import axios from "axios";
-import { goToDetails, goToPokedex } from "./router/Coordinator";
+//import { goToDetails } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
 import GlobalStateContext from "../global/GlobalStateContext";
@@ -24,20 +24,45 @@ import CardPokemon from "./CardPokemon";
 
 function HomePage() {
   const history = useHistory();
-  const { buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPodedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
-    
+  const { textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  
+  
+/*   useEffect(() => {
+    buttonPokedex ? setTextButton("ADICIONAR DA POKEDEX") : setTextButton("REMOVER DA POKEDEX")
+  }, []); */
+  
+  const goToPokedex = () => {
+    setTextButton("REMOVER DA POKEDEX")
+    history.push("/pokedex");
+  };
+
+  const addPokedex = (name, url) => {
+    const newPokemon = {name, url}
+    const newPokedex = [...pokedex, newPokemon]
+    setPokedex(newPokedex)
+    alert("Pokemon adicionado com sucesso!")
+    const ListPokemon = pokemons.filter((pokemon) => {
+      if (pokemon.name !== name) {
+        return true
+      }
+        return false
+      })
+    setPokemons(ListPokemon)
+  }
+  
+
   return <MainContainer>
             <HeaderContainer>
               <LogoContainer>
                 <Logo src= {Logomarca}></Logo>
               </LogoContainer>
               <MenuContainer>
-                <TextMenu onClick={() => goToPokedex(history)}>POKEDEX</TextMenu>
+                <TextMenu onClick={() => goToPokedex()}>POKEDEX</TextMenu>
               </MenuContainer>
             </HeaderContainer>
             <BodyContainerList>
             {pokemons.map((poke) => {
-              return <CardPokemon name={poke.name} url={poke.url} />
+              return <CardPokemon function={addPokedex} pokedex={false} name={poke.name} url={poke.url} />
             })}
             </BodyContainerList>
         </MainContainer>;
