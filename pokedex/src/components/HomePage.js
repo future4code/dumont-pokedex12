@@ -26,11 +26,6 @@ function HomePage() {
   const history = useHistory();
   const { textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
   
-  
-/*   useEffect(() => {
-    buttonPokedex ? setTextButton("ADICIONAR DA POKEDEX") : setTextButton("REMOVER DA POKEDEX")
-  }, []); */
-  
   const goToPokedex = () => {
     setTextButton("REMOVER DA POKEDEX")
     history.push("/pokedex");

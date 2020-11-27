@@ -103,7 +103,6 @@ const checkPokemon = (name, url) => {
     }
     return false
   })
-  console.log(lenghtPokemon)
   if (lengthPokemon.length = 0) {
     const newPokemon = {name, url}
     const newPokedex = [...pokedex, newPokemon]
@@ -117,7 +116,19 @@ const checkPokemon = (name, url) => {
       })
     setPokemons(ListPokemon)
   } else {
+    const newPokemon = {name, url}
+    //const newPokedex = [...pokedex, newPokemon]
+    setPokedex(pokedex.splice(newPokemon))
+    alert("Pokemon adicionado com sucesso!")
+    const ListPokemon = pokemons.filter((pokemon) => {
+      if (pokemon.name !== name) {
+        return true
+      }
+        return false
+      })
+    setPokemons(ListPokemon)
     alert("Removido!")
+
   }
 }
 
