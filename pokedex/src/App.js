@@ -12,6 +12,7 @@ const App = () => {
   //const [functionName, setFunctionName] = useState("addPokedex")
   const [detailsButton, setDetailsButton] = useState("")
   const [detailsFunction, setDetailsFunction] = useState("")
+  
 
 
   useEffect(() => {

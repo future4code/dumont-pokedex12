@@ -28,7 +28,7 @@ import Logomarca from "../img/pokemon-logo.png"
 
 
 
-function DetailsPokemon() {
+function DetailsPokemon(props) {
   const history = useHistory();
   const pathParams = useParams();
   const pokeName = pathParams.name
@@ -49,7 +49,6 @@ function DetailsPokemon() {
   
   useEffect(() => {
     getPokeDetails();
-    
   }, []);
 
 
@@ -103,7 +102,7 @@ const checkPokemon = (name, url) => {
     }
     return false
   })
-  if (lengthPokemon.length = 0) {
+  if (lengthPokemon.length === 0) {
     const newPokemon = {name, url}
     const newPokedex = [...pokedex, newPokemon]
     setPokedex(newPokedex)
@@ -115,52 +114,19 @@ const checkPokemon = (name, url) => {
         return false
       })
     setPokemons(ListPokemon)
+    pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   } else {
     const newPokemon = {name, url}
-    //const newPokedex = [...pokedex, newPokemon]
-    setPokedex(pokedex.splice(newPokemon))
-    alert("Pokemon adicionado com sucesso!")
-    const ListPokemon = pokemons.filter((pokemon) => {
-      if (pokemon.name !== name) {
-        return true
-      }
-        return false
-      })
-    setPokemons(ListPokemon)
-    alert("Removido!")
-
+    const newListPokemon = [...pokemons, newPokemon]
+    setPokemons(newListPokemon)
+    const index = pokedex.findIndex((poke) => poke.name === name)
+    let newPokedex = [...pokedex]
+    newPokedex.splice(index, 1)
+    setPokedex(newPokedex)
+    alert("Pokemon Removido!")
+    pokedex ? setDetailsButton("ADICIONAR À POKEDEX") : setDetailsButton("REMOVER DA POKEDEX")
   }
 }
-
-/* const addPokedex = (name, url) => {
-  const newPokemon = {name, url}
-  const newPokedex = [...pokedex, newPokemon]
-  setPokedex(newPokedex)
-  alert("Pokemon adicionado com sucesso!")
-  const ListPokemon = pokemons.filter((pokemon) => {
-    if (pokemon.name !== name) {
-      return true
-    }
-      return false
-    })
-  setPokemons(ListPokemon)
-}
-
-const removePokedex = (name, url) => {
-    const newPokemon = {name, url}
-    //const newPokedex = [...pokedex, newPokemon]
-    setPokedex(pokedex.splice(newPokemon))
-    alert("Pokemon adicionado com sucesso!")
-    const ListPokemon = pokemons.filter((pokemon) => {
-      if (pokemon.name !== name) {
-        return true
-      }
-        return false
-      })
-    setPokemons(ListPokemon)
-    alert("Removido!")
-  } */
-
 
   return <MainContainer>
             <HeaderContainer>

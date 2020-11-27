@@ -24,7 +24,7 @@ import CardPokemon from "./CardPokemon";
 
 function HomePage() {
   const history = useHistory();
-  const { textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { detailsButton, setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
   
   const goToPokedex = () => {
     setTextButton("REMOVER DA POKEDEX")
@@ -43,6 +43,7 @@ function HomePage() {
         return false
       })
     setPokemons(ListPokemon)
+    pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   }
   
 

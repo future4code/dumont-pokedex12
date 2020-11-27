@@ -23,7 +23,7 @@ import CardPokemon from "./CardPokemon";
 
 function Pokedex() {
   const history = useHistory();
-  const { textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
 
 
   const goToHome = () => {
@@ -38,12 +38,20 @@ function Pokedex() {
 
   const removePokedex = (name, url) => {
     const newPokemon = {name, url}
-    //const newPokedex = [...pokedex, newPokemon]
+    console.log("Newpokemon:", newPokemon)
+    const newListPokemon = [...pokemons, newPokemon]
+    setPokemons(newListPokemon)
+    console.log("Newlistpokemon:",newListPokemon)
     const index = pokedex.findIndex((poke) => poke.name === name)
-    setPokedex(pokedex.splice(index, 1))
-    console.log(pokedex)
-    //setPokemons(ListPokemon) */
+    console.log("indice:", index)
+    let newPokedex = [...pokedex]
+    console.log("newpokedex:",newPokedex)
+    newPokedex.splice(index, 1)
+    console.log("newpokedex splice:",newPokedex)
+    setPokedex(newPokedex)
+    console.log("pokedex:",pokedex)
     alert("Pokemon Removido!")
+    pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   }
 
   return (
