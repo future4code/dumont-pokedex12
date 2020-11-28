@@ -7,19 +7,13 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [pokeDetails, setPokeDetails] = useState([]);
-  //const [buttonPokedex, setButtonPokedex] = useState(true)
   const [textButton, setTextButton] = useState("ADICIONAR À POKEDEX")
-  //const [functionName, setFunctionName] = useState("addPokedex")
   const [detailsButton, setDetailsButton] = useState("")
   const [detailsFunction, setDetailsFunction] = useState("")
-  
-
 
   useEffect(() => {
     getPokemons();
   }, []);
-
-  
 
   const getPokemons = () => {
     axios

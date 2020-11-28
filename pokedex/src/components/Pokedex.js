@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
   MainContainer,
   HeaderContainer,
@@ -6,16 +6,9 @@ import {
   Logo,
   MenuContainer,
   BodyContainerList,
-  CardContainer,
-  ImgPokemon,
-  ButtonContainer,
   TextMenu,
-  YellowButton,
-  TextTitle,
   TitleContainer,
 } from "../Styled/styled";
-import axios from "axios";
-import { goToDetails, goToHome, goBack } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
 import GlobalStateContext from "../global/GlobalStateContext";
@@ -23,8 +16,7 @@ import CardPokemon from "./CardPokemon";
 
 function Pokedex() {
   const history = useHistory();
-  const { setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
-
+  const { setDetailsButton, setTextButton, pokemons, setPokemons, pokedex, setPokedex } = useContext(GlobalStateContext);
 
   const goToHome = () => {
     setTextButton("ADICIONAR À POKEDEX")
@@ -38,18 +30,12 @@ function Pokedex() {
 
   const removePokedex = (name, url) => {
     const newPokemon = {name, url}
-    console.log("Newpokemon:", newPokemon)
     const newListPokemon = [...pokemons, newPokemon]
     setPokemons(newListPokemon)
-    console.log("Newlistpokemon:",newListPokemon)
     const index = pokedex.findIndex((poke) => poke.name === name)
-    console.log("indice:", index)
     let newPokedex = [...pokedex]
-    console.log("newpokedex:",newPokedex)
     newPokedex.splice(index, 1)
-    console.log("newpokedex splice:",newPokedex)
     setPokedex(newPokedex)
-    console.log("pokedex:",pokedex)
     alert("Pokemon Removido!")
     pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   }

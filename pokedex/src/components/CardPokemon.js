@@ -7,14 +7,12 @@ import {
     YellowButton,
     TextTitle,
    } from "../Styled/styled";
- //import { goToDetails, goToPokedex } from "./router/Coordinator";
  import GlobalStateContext from "../global/GlobalStateContext";
  import axios from "axios";
 
-
 function CardPokemon(props) {
   const history = useHistory();
-  const { functionName, setFunctionName, detailsButton, setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { setDetailsButton, textButton, pokemons } = useContext(GlobalStateContext);
   const [pokeImage, setPokeImage] = useState([])
 
   useEffect(() => {
@@ -37,7 +35,6 @@ const goToDetails = (name, url, pokedex) => {
   pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   history.push(`/detalhes/${name}`);
 };
-
 
   return (
         <CardContainer>

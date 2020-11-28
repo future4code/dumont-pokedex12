@@ -7,11 +7,8 @@ import {
    Logo,
    MenuContainer,
    BodyContainerList,
-   CardContainer,
    ImgPokemon,
-   ButtonContainer,
    TextMenu,
-   YellowButton,
    TextTitle,
    TitleContainer,
    ImagesContainer,
@@ -22,11 +19,8 @@ import {
    TypeContainer
   } from "../Styled/styled";
 import axios from "axios";
-//import { goToDetails, goToPokedex, goToHome } from "./router/Coordinator";
 import { useHistory, useParams } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
-
-
 
 function DetailsPokemon(props) {
   const history = useHistory();
@@ -76,7 +70,6 @@ for (let index = 0; index < pokeStats.length; index++) {
   specialDefense = pokeStats[4];
   speed = pokeStats[5];
 }
-
 
 const moveList = pokeMoves.filter((move, index) => {
   if (index < 5) {

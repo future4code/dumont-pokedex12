@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
    MainContainer,
    HeaderContainer,
@@ -6,25 +6,16 @@ import {
    Logo,
    MenuContainer,
    BodyContainerList,
-   CardContainer,
-   ImgPokemon,
-   ButtonContainer,
    TextMenu,
-   YellowButton,
-   TextTitle,
   } from "../Styled/styled";
-import axios from "axios";
-//import { goToDetails } from "./router/Coordinator";
 import { useHistory } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
 import GlobalStateContext from "../global/GlobalStateContext";
 import CardPokemon from "./CardPokemon";
 
-
-
 function HomePage() {
   const history = useHistory();
-  const { detailsButton, setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
+  const { setDetailsButton, setTextButton, pokemons, setPokemons, pokedex, setPokedex, } = useContext(GlobalStateContext);
   
   const goToPokedex = () => {
     setTextButton("REMOVER DA POKEDEX")
@@ -46,7 +37,6 @@ function HomePage() {
     pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
   }
   
-
   return <MainContainer>
             <HeaderContainer>
               <LogoContainer>

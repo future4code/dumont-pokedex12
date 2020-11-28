@@ -5,3 +5,4 @@
 [1127/103030.482:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
 [1127/170928.988:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
 [1127/182418.261:ERROR:process_reader_win.cc(151)] SuspendThread: Acesso negado. (0x5)
+[1128/002009.572:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
