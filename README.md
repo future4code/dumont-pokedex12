@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Daltro Machado
+- Joyce Santos
+- Daniel Rezende
 
 Link do Surge: www.link.com.br
 
