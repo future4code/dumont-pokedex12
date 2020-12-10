@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import GlobalStateContext from "../global/GlobalStateContext";
 import {
    MainContainer,
    HeaderContainer,
@@ -6,11 +7,8 @@ import {
    Logo,
    MenuContainer,
    BodyContainerList,
-   CardContainer,
    ImgPokemon,
-   ButtonContainer,
    TextMenu,
-   YellowButton,
    TextTitle,
    TitleContainer,
    ImagesContainer,
@@ -21,21 +19,20 @@ import {
    TypeContainer
   } from "../Styled/styled";
 import axios from "axios";
-import { goToDetails, goToPokedex, goToHome } from "./router/Coordinator";
 import { useHistory, useParams } from "react-router-dom";
 import Logomarca from "../img/pokemon-logo.png"
 
-
-
-function DetailsPokemon() {
+function DetailsPokemon(props) {
   const history = useHistory();
   const pathParams = useParams();
   const pokeName = pathParams.name
+  const pokeUrl = pathParams.url
   const [pokeImageFront, setPokeImageFront] = useState([])
   const [pokeImageBack, setPokeImageBack] = useState([])
   const [pokeStats, setPokeStats] = useState([])
   const [pokeTypes, setPokeTypes] = useState([])
   const [pokeMoves, setPokeMoves] = useState([])
+  const { detailsFunction, setDetailsFunction, detailsButton, setDetailsButton, textButton, setTextButton, buttonPokedex, setButtonPokedex, pokemons, setPokemons, getPokemons, pokedex, setPokedex, pokeDetails, setPokeDetails } = useContext(GlobalStateContext);
 
   let hp = {}
   let attack = {}
@@ -44,10 +41,10 @@ function DetailsPokemon() {
   let specialDefense = {}
   let speed = {}
   
-
   useEffect(() => {
     getPokeDetails();
   }, []);
+
 
   const getPokeDetails = () => {
     axios
@@ -59,8 +56,6 @@ function DetailsPokemon() {
     setPokeStats(res.data.stats);
     setPokeTypes(res.data.types);
     setPokeMoves(res.data.moves);
-    console.log(res.data.moves)
-
   })
   .catch((err) => {
     console.log(err);
@@ -76,7 +71,6 @@ for (let index = 0; index < pokeStats.length; index++) {
   speed = pokeStats[5];
 }
 
-
 const moveList = pokeMoves.filter((move, index) => {
   if (index < 5) {
     return true
@@ -84,7 +78,48 @@ const moveList = pokeMoves.filter((move, index) => {
   return false
 })
 
+const goToHome = () => {
+  setTextButton("ADICIONAR À POKEDEX")
+  history.push("/");
+};
 
+const goToPokedex = () => {
+  setTextButton("REMOVER DA POKEDEX")
+  history.push("/pokedex");
+};
+
+const checkPokemon = (name, url) => {
+  const lengthPokemon = pokedex.filter((poke) => {
+    if (name === poke.name) {
+      return true
+    }
+    return false
+  })
+  if (lengthPokemon.length === 0) {
+    const newPokemon = {name, url}
+    const newPokedex = [...pokedex, newPokemon]
+    setPokedex(newPokedex)
+    alert("Pokemon adicionado com sucesso!")
+    const ListPokemon = pokemons.filter((pokemon) => {
+      if (pokemon.name !== name) {
+        return true
+      }
+        return false
+      })
+    setPokemons(ListPokemon)
+    pokedex ? setDetailsButton("REMOVER DA POKEDEX") : setDetailsButton("ADICIONAR À POKEDEX")
+  } else {
+    const newPokemon = {name, url}
+    const newListPokemon = [...pokemons, newPokemon]
+    setPokemons(newListPokemon)
+    const index = pokedex.findIndex((poke) => poke.name === name)
+    let newPokedex = [...pokedex]
+    newPokedex.splice(index, 1)
+    setPokedex(newPokedex)
+    alert("Pokemon Removido!")
+    pokedex ? setDetailsButton("ADICIONAR À POKEDEX") : setDetailsButton("REMOVER DA POKEDEX")
+  }
+}
 
   return <MainContainer>
             <HeaderContainer>
@@ -93,8 +128,8 @@ const moveList = pokeMoves.filter((move, index) => {
               </LogoContainer>
               <TitleContainer><h1>{pokeName}</h1></TitleContainer>
               <MenuContainer>
-              <TextMenu onClick={() => goToHome(history)}>POKEHOME</TextMenu>
-                <TextMenu onClick={() => goToPokedex(history)}>POKEDEX</TextMenu>
+              <TextMenu onClick={() => goToHome()}>POKEHOME</TextMenu>
+                <TextMenu onClick={() => goToPokedex()}>POKEDEX</TextMenu>
               </MenuContainer>
             </HeaderContainer>
             <BodyContainerList>
@@ -125,7 +160,7 @@ const moveList = pokeMoves.filter((move, index) => {
                   return <TextDetails>{move.move.name}</TextDetails>
                 })}
               </DetailsContainer>
-              <BlueButton>ADICIONAR À POKEDEX</BlueButton>
+              <BlueButton onClick={() => checkPokemon(pokeName, pokeUrl)}>{detailsButton}</BlueButton>
             </BodyContainerList>
 </MainContainer>;
 }
